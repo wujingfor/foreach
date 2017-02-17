@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"> 
+	<link rel="stylesheet" href="swiper-3.4.1.min.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<script src="jquery-1.7.2.js"></script>
+	<script src="swiper-3.4.1.min.js"></script>
+
+<style>
+	
+
+</style>
+<script>
+	document.documentElement.style.fontSize=20*document.documentElement.clientWidth/320+'px';
+	window.onresize=function(){
+		document.documentElement.style.fontSize=20*document.documentElement.clientWidth/320+'px';
+	};	
+	(function(){
+		$(function(){
+			$.fn.slider=function(){
+				this.each(function(index,element){
+					console.log(element)
+					var aA=$(this).find('.main-font a');
+					var oUl=$(this).find('.main-data');
+					aA.on('click',function(){
+						aA.removeClass('main-bor');
+						$(this).addClass('main-bor');
+						oUl.hide();
+						oUl.eq($(this).index()).show();
+					})
+				})
+			}
+			$('.main-hot').slider();
+			var oBlack=$('#black');
+			var timer=null;
+			oBlack.on('click',function(){
+				var start=document.documentElement.scrollTop||document.body.scrollTop;
+				var dis=0-start;
+				var count=Math.floor(100/30);
+				var n=0;
+
+				timer=setInterval(function(){
+					n++;
+					var a=1-n/count;
+					var cur=start+dis*(1-a*a*a);
+					document.documentElement.scrollTop=document.body.scrollTop=cur;
+					if (n==count) {
+						clearInterval(timer)
+					};
+				},30)
+			})
+			var mySwiper = new Swiper('.swiper-container',{
+				loop : true,
+				loopAdditionalSlides : 1,
+			})
+		})
+	})()
+
+</script>
+</head>
+<body>
+<header>
+	<!-- 导航 -->
+	<div class="nav-box">
+		<a class="nav-meun" href="javascript:;"></a>
+		<h2>Guokr.com</h2>
+		<a class="nav-pc" href="javascript:;"></a>
+	</div>
+	<!-- 用户登录 -->
+	<div class="user-box">
+		<div class="user-name">
+			<p></p>
+			<a href="javascript:;">用户登录</a>
+		</div>
+		<p class="user-bar"></p>
+		<div class="user-name reg">
+			<span></span>
+			<a href="javascript:;">用户注册</a>
+		</div>
+	</div>
+</header>
+<section>
+	<!-- 广告 -->
+<div class="swiper-container">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide banner">
+			<img src="img/banner.jpg">
+			<p class="ban-opc"></p>
+			<p class="ban-opt">天上人间,谁来作陪</p>
+		</div>
+		<div class="swiper-slide banner">
+			<img src="img/banner.jpg">
+			<p class="ban-opc"></p>
+			<p class="ban-opt">天上人间,</p>
+		</div>
+		<div class="swiper-slide banner">
+			<img src="img/banner.jpg">
+			<p class="ban-opc"></p>
+			<p class="ban-opt">天上人间,谁来作陪</p>
+		</div>
+	</div>
+</div>
+	<!-- 数据 -->
+	<div class="main-box">
+		<ul class="main-ul">
+			<li><a href="javascript:;">记者：你幸福吗?</a></li>
+			<li><a href="javascript:;">尔康：我姓福。</a></li>
+			<li><a href="javascript:;">记者：你满足吗?</a></li>
+			<li><a href="javascript:;">尔康：我满族。</a></li>
+			<li><a href="javascript:;">记者：你为什么幸福?</a></li>
+			<li><a href="javascript:;">尔康：因为我爹姓福啊……</a></li>
+			<li><a href="javascript:;">记者：为什么你爹爹幸福你就幸福?尔康：这个，这个，因为是亲生的啊</a></li>
+		</ul>
+	</div>
+	<!-- 热门问答 -->
+	<div id="main-change">
+		<div class="main-bar">
+		<h3>热门问答</h3>
+		<p></p>
+	</div>
+	<div class="main-hot">
+		<div class="main-font">
+			<a class="main-bor" href="javascript:;">科技</a>
+			<a href="javascript:;">生活</a>
+			<a href="javascript:;">人文</a>
+			<a href="javascript:;">自然</a>
+		</div>
+		<ul style="display: block;" class="main-data">
+			<h3>某人得一宝贝紫砂壶，夜必放床头。</h3>
+			<p>
+				<img src="img/tu-bg.png">
+				<span>
+					一次失手将紫砂壶壶盖打翻,惊醒甚恼,壶盖既碎,留壶身何用?于是抓起壶扔到窗外.天明发现壶盖掉在棉鞋上,无损恨之。
+				</span>
+			</p>
+			<ul>
+				<li><a href="javascript:;">挣的是卖白菜的钱，</a></li>
+				<li><a href="javascript:;">操的是卖白粉的心。</a></li>
+				<li><a href="javascript:;">我怕我女朋友出轨，就把她气给放了</a></li>
+				<li><a href="javascript:;">我都把电脑砸烂了，为什么还是没见脑浆</a></li>
+			</ul>
+		</ul>
+		<ul style="display: none;" class="main-data">
+			<h3>某人得一宝贝紫砂壶，夜必放床头。</h3>
+			<p>
+				<img src="img/tu2-bg.png">
+				<span>
+					一次失手将紫砂壶壶盖打翻,惊醒甚恼,壶盖既碎,留壶身何用?于是抓起壶扔到窗外.天明发现壶盖掉在棉鞋上,无损恨之。
+				</span>
+			</p>
+			<ul>
+				<li><a href="javascript:;">操的是卖白粉的心。</a></li>
+				<li><a href="javascript:;">我怕我女朋友出轨，</a></li>
+				<li><a href="javascript:;">头好晕，地球能不能不转了</a></li>
+				<li><a href="javascript:;">我都把电脑砸烂了，为什么还是没见脑浆</a></li>
+			</ul>
+		</ul>
+		<ul style="display: none;" class="main-data">
+			<h3>某人得一宝贝紫砂壶，夜必放床头。</h3>
+			<p>
+				<img src="img/tu-bg.png">
+				<span>
+					一次失手将紫砂壶壶盖打翻,惊醒甚恼,壶盖既碎,留壶身何用?于是抓起壶扔到窗外.天明发现壶盖掉在棉鞋上,无损恨之。
+				</span>
+			</p>
+			<ul>
+				<li><a href="javascript:;">挣的是卖白菜的钱，操的是卖白粉的心。</a></li>
+				<li><a href="javascript:;">头好晕，地球能不能不转了</a></li>
+				<li><a href="javascript:;">我怕我女朋友出轨，就把她气给放了</a></li>
+				<li><a href="javascript:;">我都把电脑砸烂了，为什么还是没见脑浆</a></li>
+			</ul>
+		</ul>
+		<ul style="display: none;" class="main-data">
+			<h3>某人得一宝贝紫砂壶，夜必放床头。</h3>
+			<p>
+				<img src="img/tu2-bg.png">
+				<span>
+					一次失手将紫砂壶壶盖打翻,惊醒甚恼,壶盖既碎,留壶身何用?于是抓起壶扔到窗外.天明发现壶盖掉在棉鞋上,无损恨之。
+				</span>
+			</p>
+			<ul>
+				<li><a href="javascript:;">挣的是卖白菜的钱，操的是卖白粉的心。</a></li>
+				<li><a href="javascript:;">我怕我女朋友出轨，就把她气给放了</a></li>
+				<li><a href="javascript:;">头好晕，地球能不能不转了</a></li>
+				<li><a href="javascript:;">我都把电脑砸烂了，为什么还是没见脑浆</a></li>
+			</ul>
+		</ul>
+	</div>
+	<!-- 小组热帖 -->
+	<div class="main-bar">
+		<h3>小组热帖</h3>
+		<p></p>
+	</div>
+	<div class="main-hot  bor-Gen">
+		<div class="main-font">
+			<a class="main-bor" href="javascript:;">科技</a>
+			<a href="javascript:;">生活</a>
+			<a href="javascript:;">人文</a>
+			<a href="javascript:;">自然</a>
+		</div>
+		<ul style="display: block;" class="main-data">
+			<h3>某人得一宝贝紫砂壶，夜必放床头。</h3>
+			<p>
+				<img src="img/tu-bg.png">
+				<span>
+					一次失手将紫砂壶壶盖打翻,惊醒甚恼,壶盖既碎,留壶身何用?于是抓起壶扔到窗外.天明发现壶盖掉在棉鞋上,无损恨之。
+				</span>
+			</p>
+			<ul>
+				<li><a href="javascript:;">挣的是卖白菜的钱，操的是卖白粉的心。</a></li>
+				<li><a href="javascript:;">我怕我女朋友出轨，就把她气给放了</a></li>
+				<li><a href="javascript:;">头好晕，地球能不能不转了</a></li>
+				<li><a href="javascript:;">我都把电脑砸烂了，为什么还是没见脑浆</a></li>
+			</ul>
+		</ul>
+		<ul style="display: none;" class="main-data">
+			<h3>某人得一宝贝紫砂壶，夜必放床头。</h3>
+			<p>
+				<img src="img/tu2-bg.png">
+				<span>
+					一次失手将紫砂壶壶盖打翻,惊醒甚恼,壶盖既碎,留壶身何用?于是抓起壶扔到窗外.天明发现壶盖掉在棉鞋上,无损恨之。
+				</span>
+			</p>
+			<ul>
+				<li><a href="javascript:;">挣的是卖白菜的钱，操的是卖白粉的心。</a></li>
+				<li><a href="javascript:;">我怕我女朋友出轨，就把她气给放了</a></li>
+				<li><a href="javascript:;">头好晕，地球能不能不转了</a></li>
+				<li><a href="javascript:;">我都把电脑砸烂了，为什么还是没见脑浆</a></li>
+			</ul>
+		</ul>
+		<ul style="display: none;" class="main-data">
+			<h3>某人得一宝贝紫砂壶，夜必放床头。</h3>
+			<p>
+				<img src="img/tu-bg.png">
+				<span>
+					一次失手将紫砂壶壶盖打翻,惊醒甚恼,壶盖既碎,留壶身何用?于是抓起壶扔到窗外.天明发现壶盖掉在棉鞋上,无损恨之。
+				</span>
+			</p>
+			<ul>
+				<li><a href="javascript:;">挣的是卖白菜的钱，操的是卖白粉的心。</a></li>
+				<li><a href="javascript:;">我怕我女朋友出轨，就把她气给放了</a></li>
+				<li><a href="javascript:;">头好晕，地球能不能不转了</a></li>
+				<li><a href="javascript:;">我都把电脑砸烂了，为什么还是没见脑浆</a></li>
+			</ul>
+		</ul>
+		<ul style="display: none;" class="main-data">
+			<h3>某人得一宝贝紫砂壶，夜必放床头。</h3>
+			<p>
+				<img src="img/tu2-bg.png">
+				<span>
+					一次失手将紫砂壶壶盖打翻,惊醒甚恼,壶盖既碎,留壶身何用?于是抓起壶扔到窗外.天明发现壶盖掉在棉鞋上,无损恨之。
+				</span>
+			</p>
+			<ul>
+				<li><a href="javascript:;">挣的是卖白菜的钱，操的是卖白粉的心。</a></li>
+				<li><a href="javascript:;">我怕我女朋友出轨，就把她气给放了</a></li>
+				<li><a href="javascript:;">头好晕，地球能不能不转了</a></li>
+				<li><a href="javascript:;">我都把电脑砸烂了，为什么还是没见脑浆</a></li>
+			</ul>
+		</ul>
+	</div>
+	</div>
+</section>
+<!-- 尾部 -->
+<footer>
+		<nav>
+			<div>
+				<a id="black" href="javascript:;"><span>回到顶部</span></a>
+			</div>
+			<ul>
+				<li class="f-left"><a href="javascript:;"><span>pc版</span></a></li>
+				<p></p>
+				<li class="f-right"><a href="javascript:;"><span>移动应用</span></a></li>
+			</ul>
+		</nav>
+	</footer>
+</body>
+</html>
